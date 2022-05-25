@@ -2,10 +2,8 @@ import streamlit as st
 from Fumagalli_Motta_Tarantino_2020 import Models, Visualize
 
 st.set_page_config(
-     page_title="Ex-stream-ly Cool App",
+     page_title="Home",
      page_icon="🧊",
-     layout="wide",
-     initial_sidebar_state="expanded",
      menu_items={
          'Get help': 'https://manuelbieri.ch/Fumagalli_2020',
          'About': "https://github.com/manuelbieri/Fumagalli_2020",
