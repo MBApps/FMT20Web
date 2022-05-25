@@ -1,0 +1,4 @@
+altair
+pandas
+streamlit
+Fumagalli-Motta-Tarantino-2020
