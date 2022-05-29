@@ -1,6 +1,1 @@
-# Welcome to Streamlit!
-
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+Visit [Fumagalli_2020](https://github.com/manuelbieri/Fumagalli_2020) for more details about the models.
