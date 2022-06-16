@@ -38,7 +38,8 @@ try:
         startup_assets=A,
         success_probability=p,
         private_benefit=B,
-        development_success=development_success
+        development_success=development_success,
+        asset_distribution=FMT20.Distributions.UniformDistribution
     )
     v1 = FMT20.Timeline(m)
     v2 = FMT20.Payoffs(m)
