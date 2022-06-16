@@ -29,7 +29,8 @@ with st.sidebar:
     p = create_slider("Probability for Development Success", 'success_probability', 'Probability, that the development by the owner of the product is successful')
     B = create_slider("Private Benefit", 'private_benefit', 'Private benefit of the entrepreneur')
     development_success = st.selectbox('Is Development successful if attempted?',(True, False))
-    show_legend = st.checkbox('Show legends', value=True)
+    show_legend = st.checkbox('Show legends', value=False)
+    # config_id = st.number_input('Enter Configuration ID:',min_value=1, max_value=40, value=1, step=1)
 
 try:
     m = Models.OptimalMergerPolicy(
@@ -40,13 +41,16 @@ try:
         development_success=development_success
     )
     v1 = Visualize.Timeline(m)
-    v2 = Visualize.AssetRange(m)
+    v2 = Visualize.Payoffs(m)
     v3 = Visualize.MergerPoliciesAssetRange(m)
     v1.plot(legend=show_legend)
     v2.plot(legend=show_legend)
     v3.plot(legend=show_legend)
-    st.pyplot(v1.fig, transparent=True)
+    "At first have a look at the payoffs of the model."
     st.pyplot(v2.fig, transparent=True)
+    "Now let us focus on the timeline of events in the model."
+    st.pyplot(v1.fig, transparent=True)
+    "What happens for different merger policies?"
     st.pyplot(v3.fig, transparent=True)
 except AssertionError as e:
     st.write(e)
