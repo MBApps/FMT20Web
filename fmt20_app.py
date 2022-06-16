@@ -1,8 +1,8 @@
 import sys
 import streamlit as st
+import Fumagalli_Motta_Tarantino_2020 as FMT20
 
 from utilities import *
-from Fumagalli_Motta_Tarantino_2020 import Models, Visualize
 
 
 sys.tracebacklimit = 0
@@ -33,19 +33,19 @@ with st.sidebar:
     # config_id = st.number_input('Enter Configuration ID:',min_value=1, max_value=40, value=1, step=1)
 
 try:
-    m = Models.OptimalMergerPolicy(
+    m = FMT20.OptimalMergerPolicy(
         development_costs=K,
         startup_assets=A,
         success_probability=p,
         private_benefit=B,
         development_success=development_success
     )
-    v1 = Visualize.Timeline(m)
-    v2 = Visualize.Payoffs(m)
-    v3 = Visualize.MergerPoliciesAssetRange(m)
+    v1 = FMT20.Timeline(m)
+    v2 = FMT20.Payoffs(m)
+    v3 = FMT20.MergerPoliciesAssetRange(m)
     v1.plot(legend=show_legend)
     v2.plot(legend=show_legend)
-    v3.plot(legend=show_legend)
+    v3.plot(legend=show_legend, thresholds=True, y_offset=-60)
     "At first have a look at the payoffs of the model."
     st.pyplot(v2.fig, transparent=True)
     "Now let us focus on the timeline of events in the model."
