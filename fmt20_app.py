@@ -37,7 +37,7 @@ def set_config():
 
 
 with st.sidebar:
-    model = st.selectbox('', (FMT20.OptimalMergerPolicy, FMT20.ProCompetitive, FMT20.ResourceWaste), format_func=lambda x:model_label(x), key='model')
+    model = st.selectbox('', (FMT20.OptimalMergerPolicy, FMT20.ProCompetitive, FMT20.ResourceWaste), key='model')
     "### Set the model parameters"
     policy = st.selectbox('Merger Policy', (FMT20.MergerPolicies.Strict, FMT20.MergerPolicies.Intermediate_late_takeover_prohibited, FMT20.MergerPolicies.Intermediate_late_takeover_allowed, FMT20.MergerPolicies.Laissez_faire), key='policy')
     K = create_slider("Development Costs", 'development_costs', 'Costs for the development of the product (independent of success)')
@@ -53,7 +53,7 @@ with st.sidebar:
     piId = create_slider("Incumbent Profit Duopoly", 'incumbent_profit_duopoly', '')
     piSd = create_slider("Start-up Profit Duopoly", 'startup_profit_duopoly', '')
     gamma = create_slider("Substitutability", 'gamma', '')
-    configs = st.selectbox('Available configurations',get_configurations(), format_func=lambda x:configuration_label(x), on_change=set_config, key='configs')
+    configs = st.selectbox('Available configurations',get_configurations(), on_change=set_config, key='configs')
 
 
 try:
