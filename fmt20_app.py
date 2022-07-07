@@ -53,7 +53,7 @@ with st.sidebar:
     piId = create_slider("Incumbent Profit Duopoly", 'incumbent_profit_duopoly', '')
     piSd = create_slider("Start-up Profit Duopoly", 'startup_profit_duopoly', '')
     gamma = create_slider("Substitutability", 'gamma', '')
-    configs = st.selectbox('Available configurations',get_configurations(), format_func=lambda x:configuration_label(x), on_change=set_config, key='configs')
+    # configs = st.selectbox('Available configurations',get_configurations(), format_func=lambda x:configuration_label(x), on_change=set_config, key='configs')
 
 
 try:
