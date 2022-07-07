@@ -57,7 +57,6 @@ with st.sidebar:
 
 
 try:
-    st.write(st.session_state)
     m = st.session_state.model(
         merger_policy=st.session_state.policy,
         development_costs=st.session_state.development_costs,
