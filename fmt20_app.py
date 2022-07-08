@@ -19,7 +19,6 @@ st.set_page_config(
 
 def set_config():
     config = FMT20.LoadParameters(config_id=st.session_state.configs[0])
-    st.write(config.params.params)
     st.session_state.model = st.session_state.configs[1]
     st.session_state.development_costs = config.params.params["development_costs"]
     st.session_state.startup_assets = config.params.params["startup_assets"]
@@ -33,7 +32,6 @@ def set_config():
     st.session_state.incumbent_profit_duopoly = config.params.params["incumbent_profit_duopoly"]
     st.session_state.startup_profit_duopoly = config.params.params["startup_profit_duopoly"]
     st.session_state.incumbent_profit_with_innovation = config.params.params["incumbent_profit_with_innovation"]
-    st.write(st.session_state)
 
 
 with st.sidebar:
@@ -53,7 +51,7 @@ with st.sidebar:
     piId = create_slider("Incumbent Profit Duopoly", 'incumbent_profit_duopoly', '')
     piSd = create_slider("Start-up Profit Duopoly", 'startup_profit_duopoly', '')
     gamma = create_slider("Substitutability", 'gamma', '')
-    # configs = st.selectbox('Available configurations',get_configurations(), format_func=lambda x:configuration_label(x), on_change=set_config, key='configs')
+    configs = st.selectbox('Available configurations',get_configurations(), format_func=lambda x:configuration_label(x), on_change=set_config, key='configs')
 
 
 try:

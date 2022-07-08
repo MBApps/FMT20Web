@@ -4,7 +4,8 @@ import Fumagalli_Motta_Tarantino_2020.Notebooks.NotebookUtilities as FMT20_NB
 
 
 def create_slider(label: str, key: str, help_label: str = ''):
-    st.session_state[key] = get_default_value(key)
+    if key not in st.session_state:
+        st.session_state[key] = get_default_value(key)
     return st.slider(label, min_value=0.0, max_value=1.0, step=0.001, key=key, help=help_label)
 
 def get_default_value(param: str, model=FMT20.CoreModel):
