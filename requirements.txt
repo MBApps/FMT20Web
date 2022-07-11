@@ -1,2 +1,3 @@
 streamlit==1.10.0
+latex
 Fumagalli_Motta_Tarantino_2020[style]==0.5.1
