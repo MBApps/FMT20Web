@@ -1,3 +1,2 @@
 streamlit==1.10.0
-SciencePlots
 Fumagalli_Motta_Tarantino_2020==0.5.1
