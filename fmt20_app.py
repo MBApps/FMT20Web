@@ -25,9 +25,9 @@ def set_config():
     st.session_state.development_success = config.params.params["development_success"]
     st.session_state.success_probability = config.params.params["success_probability"]
     st.session_state.private_benefit = config.params.params["private_benefit"]
-    st.session_state.consumer_surplus_without_innovation = config.params.params["consumer_surplus_without_innovation"]
-    st.session_state.consumer_surplus_with_innovation = config.params.params["consumer_surplus_with_innovation"]
-    st.session_state.consumer_surplus_duopoly = config.params.params["consumer_surplus_duopoly"]
+    st.session_state.cs_without_innovation = config.params.params["consumer_surplus_without_innovation"]
+    st.session_state.cs_with_innovation = config.params.params["consumer_surplus_with_innovation"]
+    st.session_state.cs_duopoly = config.params.params["consumer_surplus_duopoly"]
     st.session_state.incumbent_profit_without_innovation = config.params.params["incumbent_profit_without_innovation"]
     st.session_state.incumbent_profit_duopoly = config.params.params["incumbent_profit_duopoly"]
     st.session_state.startup_profit_duopoly = config.params.params["startup_profit_duopoly"]
@@ -37,15 +37,18 @@ def set_config():
 with st.sidebar:
     model = st.selectbox('Select the Model', (FMT20.OptimalMergerPolicy, FMT20.ProCompetitive, FMT20.ResourceWaste), format_func=lambda x:model_label(x), key='model')
     "### Set the model parameters"
-    policy = st.selectbox('Merger Policy', (FMT20.MergerPolicies.Strict, FMT20.MergerPolicies.Intermediate_late_takeover_prohibited, FMT20.MergerPolicies.Intermediate_late_takeover_allowed, FMT20.MergerPolicies.Laissez_faire), key='policy')
+    policy = st.selectbox('Merger Policy', (FMT20.MergerPolicies.Strict,
+                                            FMT20.MergerPolicies.Intermediate_late_takeover_prohibited,
+                                            FMT20.MergerPolicies.Intermediate_late_takeover_allowed,
+                                            FMT20.MergerPolicies.Laissez_faire), key='policy')
     K = create_slider("Development Costs", 'development_costs')
     A = create_slider("Start-up Assets", 'startup_assets')
     p = create_slider("Probability for Development Success", 'success_probability')
     B = create_slider("Private Benefit", 'private_benefit')
     development_success = st.selectbox('Is Development successful if attempted?',(True, False), key='development_success')
-    csm = create_slider("Consumer Surplus without Innovation", 'cs_without_innovation', 'consumer_surplus_without_innovation')
-    csM = create_slider("Consumer Surplus with Innovation", 'cs_with_innovation', 'consumer_surplus_with_innovation')
-    csd = create_slider("Consumer Surplus Duopoly", 'cs_duopoly', 'consumer_surplus_duopoly')
+    csm = create_slider("Consumer Surplus without Innovation", 'cs_without_innovation', default_key='consumer_surplus_without_innovation')
+    csM = create_slider("Consumer Surplus with Innovation", 'cs_with_innovation', default_key='consumer_surplus_with_innovation')
+    csd = create_slider("Consumer Surplus Duopoly", 'cs_duopoly', default_key='consumer_surplus_duopoly')
     pim = create_slider("Incumbent Profit without Innovation", 'incumbent_profit_without_innovation')
     piM = create_slider("Incumbent Profit with Innovation", 'incumbent_profit_with_innovation')
     piId = create_slider("Incumbent Profit Duopoly", 'incumbent_profit_duopoly')
