@@ -75,8 +75,8 @@ try:
         incumbent_profit_with_innovation = st.session_state.incumbent_profit_with_innovation,
         asset_distribution=FMT20.Distributions.UniformDistribution
     )
-    v = FMT20.Overview(m, default_style=False, figsize=(9.5, 7))
-    v.plot(fontsize=9, figure_title='', title='', thresholds=True, optimal_policy=True, y_offset=-40)
+    v = FMT20.Overview(m, default_style=True, figsize=(9.5, 7))
+    v.plot(fontsize=7, figure_title='', title='', thresholds=True, optimal_policy=True, y_offset=-40)
     v.fig.set_label("Fumagalli et al. (2020)")
     st.pyplot(v.fig, transparent=True, dpi=750)
 except AssertionError as e:
