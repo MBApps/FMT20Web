@@ -58,7 +58,6 @@ with st.sidebar:
 
 
 try:
-    st.markdown("<h2 style='text-align: center;'>Model Overview</h2>", unsafe_allow_html=True)
     m = st.session_state.model(
         merger_policy=st.session_state.policy,
         development_costs=st.session_state.development_costs,
@@ -75,9 +74,9 @@ try:
         incumbent_profit_with_innovation = st.session_state.incumbent_profit_with_innovation,
         asset_distribution=FMT20.Distributions.UniformDistribution
     )
+    st.markdown(f"# Model Overview - {FMT20.IVisualize.get_model_label(st.session_state.model)}")
     v = FMT20.Overview(m, default_style=True, figsize=(9.5, 7))
     v.plot(fontsize=7, figure_title='', title='', thresholds=True, optimal_policy=True, y_offset=-40)
-    v.fig.set_label("Fumagalli et al. (2020)")
     st.pyplot(v.fig, transparent=True, dpi=750)
 except AssertionError as e:
     st.write(e)
