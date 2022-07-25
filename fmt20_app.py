@@ -35,7 +35,7 @@ def set_config():
 
 
 with st.sidebar:
-    model = st.selectbox('Select the Model', (FMT20.OptimalMergerPolicy, FMT20.ProCompetitive, FMT20.ResourceWaste), format_func=lambda x:model_label(x), key='model')
+    model = st.selectbox('Select the Model', (FMT20.OptimalMergerPolicy, FMT20.ProCompetitive, FMT20.ResourceWaste, FMT20.PerfectInformation, FMT20.EquityContract), format_func=lambda x:FMT20.IVisualize.get_model_label(x), key='model')
     "### Set the model parameters"
     policy = st.selectbox('Merger Policy', (FMT20.MergerPolicies.Strict,
                                             FMT20.MergerPolicies.Intermediate_late_takeover_prohibited,
