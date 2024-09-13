@@ -1,2 +1,2 @@
-streamlit==1.30.0
+streamlit==1.37.0
 Fumagalli_Motta_Tarantino_2020==1.0.0
